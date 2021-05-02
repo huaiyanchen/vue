@@ -11,6 +11,18 @@
      输入的文本框: <input type="text" v-model="message">{{message}}
 </div>
 
+<div id="app1">
+   请选择 <select v-model="message">
+
+        <option value="" disabled >---请选择---</option>
+        <option>A</option>
+        <option>B</option>
+        <option>C</option>
+    </select>
+
+    <span>选择了{{message}}</span>
+</div>
+
 
 <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
 <script>
@@ -18,7 +30,14 @@
         //
         el: "#app",
         data: {
-            message: ""
+            message: "123"
+        }
+    });
+    var vm1 = new Vue({
+        //
+        el: "#app1",
+        data: {
+            message: "123"
         }
     });
 </script>

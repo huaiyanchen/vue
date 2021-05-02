@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div id="app">
+    {{info.name}}
+    <div>{{info.address.city}}</div>
+    <a v-bind:href="info.url"> click
+    </a>
+
+</div>
+
+
+<script src="https://cdn.bootcdn.net/ajax/libs/axios/0.21.1/axios.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+<script type="text/javascript">
+    var vm = new Vue({
+        el: "#app",
+        //data 函数   区别data属性
+        data() {
+            return {
+                info: {
+                    name: null,
+                    url: null,
+                    address: {
+                        street: null,
+                        city: null,
+                        country: null
+                    }
+                }
+            }
+        },
+        //钩子函数
+        mounted() {
+            axios.get('../data.json').then(response => (this.info = response.data))
+        }
+
+    });
+
+</script>
+</body>
+</html>

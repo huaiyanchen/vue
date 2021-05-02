@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<div id="app">
+<!--    //自定义模板 输出items的内容    绑定到 自定义的模板中 并且命名itemprop给 props使用-->
+    <chy v-for="item in items" v-bind:itemprop="item" ></chy>
+
+</div>
+
+
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+<script>
+
+    //定义一个vue组件component
+    //第一个 名字 chy
+    //第二个  参数 props 注格式
+    //第三个  模板  自定的模板
+    Vue.component("chy", {
+        //绑定标签组件元素
+        props: ['itemprop'],
+        //标签模板, 输出内容为 props的内容
+        template: '<li>{{itemprop}}</li>'
+    });
+
+    var vm = new Vue({
+        el: "#app",
+        data: {
+            //定义循环输出的items的数组
+            items: ["语文", "数学", "英语"]
+
+        }
+    });
+</script>
+</body>
+</html>
